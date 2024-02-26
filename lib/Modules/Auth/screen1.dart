@@ -1,89 +1,92 @@
 import 'package:flutter/material.dart';
+import 'package:zain_opticals/Modules/Auth/Registration.dart';
+import 'package:zain_opticals/Widgets/customtxtfeild.dart'; // Import correct file
 
 class Screen1 extends StatelessWidget {
-  const Screen1({Key? key});
+  Screen1({Key? key});
+  TextEditingController txtfieldctrlemail = TextEditingController();
+  TextEditingController txtfieldctrlpass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView( // Wrap the Column with SingleChildScrollView
+      body: SingleChildScrollView(
+        // Wrap the Column with SingleChildScrollView
         child: Column(
           // Aligns children to the start (left) of the column
           children: [
-            SizedBox(height: 1 * 60.0),
-            Text(
+            const SizedBox(height: 1 * 60.0),
+            const Text(
               "Login",
               textAlign: TextAlign.left,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
             Container(
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               height: 60,
               width: 350,
               color: Colors.white,
-              child: TextField(
-                decoration: InputDecoration(
-                  border : OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                  hintText: "Enter Email",
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
+              child: customtxtfeild(
+                controller: txtfieldctrlemail,
+                hinttext: 'enter email',
+              ), // Use correct widget and constructor
+            ), // Remove extra closing parenthesis
+            const SizedBox(height: 15),
             Container(
               height: 60,
               width: 400,
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               color: Colors.white,
               child: Row(
                 children: [
                   Container(
-                    height: 60,
-                    width: 340,
-                    color: Colors.white,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                        hintText: "Enter Password",
-                        suffixIcon: Icon(Icons.visibility),
-                      ),
-                    ),
-                  ),
+                      height: 60,
+                      width: 340,
+                      color: Colors.white,
+                      child: customtxtfeild(
+                        hinttext: "enter password",
+                        controller: txtfieldctrlpass,
+                        suffixicon: const Icon(Icons.visibility),
+                      )),
                 ],
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             TextButton(
               onPressed: () {},
-              child: Text("Forget Password"),
+              child: const Text("Forget Password"),
             ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Container(
               height: 50,
               width: 300,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: () {},
-                child: Text("login"),
+                child: const Text("login"),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
               height: 50,
               width: 400,
-              margin: EdgeInsets.only(left: 75),
+              margin: const EdgeInsets.only(left: 75),
               child: Row(
                 children: [
-                  Text("Dont have an account?"),
-                  SizedBox(width: 10),
+                  const Text("Dont have an account?"),
+                  const SizedBox(width: 10),
                   TextButton(
-                    onPressed: () {},
-                    child: Text(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => registration(),));
+                    },
+                    child: const Text(
                       "Register",
-                      style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.green, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
