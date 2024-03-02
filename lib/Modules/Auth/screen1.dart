@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zain_opticals/Modules/Auth/Registration.dart';
+import 'package:zain_opticals/Modules/Users/userhome.dart';
 import 'package:zain_opticals/Widgets/customtxtfeild.dart'; // Import correct file
 
 class Screen1 extends StatelessWidget {
@@ -66,7 +67,9 @@ class Screen1 extends StatelessWidget {
               width: 300,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => userhome(),));
+                },
                 child: const Text("login"),
               ),
             ),

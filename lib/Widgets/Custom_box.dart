@@ -1,40 +1,31 @@
 import 'package:flutter/material.dart';
 
-class customtxtfeild extends StatelessWidget {
-  customtxtfeild({
-    super.key,
-    required this.hinttext,
-    required this.controller,
-
+class Custom_boxx extends StatelessWidget {
+   Custom_boxx({
+    super.key,required this.image,required this.text,
   });
-  final TextEditingController controller;
-  final String hinttext;
-
-
-
+  final image;
+  final text;
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: EdgeInsets.only(left: 10, right: 10),
-
       child: Column(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: Container(
               height: 100,
-              width: 100
-              ,
+              width: 100,
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
-
                   padding: EdgeInsets
                       .zero, // Remove any default padding
                 ),
                 onPressed: () {},
                 child: Image.asset(
-                  'assets/images/z4.jpg',
+                  image,
                   fit: BoxFit
                       .cover, // This line adjusts the fit of the image
                   width: double
@@ -45,11 +36,12 @@ class customtxtfeild extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 3,),
-          Text("black-flamed")
+          SizedBox(
+            height: 3,
+          ),
+          Text(text,)
         ],
       ),
-
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zain_opticals/Modules/Auth/screen1.dart';
+import 'package:zain_opticals/Modules/Users/userhome.dart';
 import 'package:zain_opticals/Widgets/customtxtfeild.dart';
 
 class registration extends StatelessWidget {
@@ -132,6 +133,7 @@ class registration extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => userhome(),));
 
                 },
                 child: const Text("SIGN UP"),
